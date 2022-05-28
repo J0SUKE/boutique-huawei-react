@@ -1,0 +1,285 @@
+@import "./globals.scss";
+@import "./Laptops.scss";
+body{
+    background: $body-bg;
+}
+
+header
+{
+    height: 60px;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color:transparent;
+    transition: background-color .4s;
+    .header
+    {
+        width: 95%;
+        margin: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo
+        {
+            width: 100px;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &__right
+        {
+            display: flex;
+            align-items: center;
+            button{
+                height: 25px;
+                border: none;
+                outline: none;
+                background: transparent;
+                margin: 0 .5rem;
+                cursor: pointer;
+                img{
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+
+        .hamburger
+        {
+            height: 10px;
+            width: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: .8rem;
+            span{
+                height: 2.5px;
+                border-radius: 1.25px;
+                width: 100%;
+                background: black;
+            }
+        }
+
+    }
+
+    
+
+    &.scroll
+    {
+        border-bottom: 1px solid lightgray;
+        background-color: white;
+    }
+}
+
+.searchZone
+{    
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    background: white;
+    border-top: 1px solid lightgray;
+    form
+    {
+        border: 1px solid $border-color;
+        margin: 7rem auto 0 auto;
+        max-width: 550px;
+        width: 90%;
+        min-width: 350px;
+        height: 70px;
+        border-radius: 35px;
+        overflow: hidden;
+        position: relative;
+        input{
+            height: 100%;
+            border: none;
+            outline: none;
+            padding: 0 35px ;
+            font-size: 1.4rem;
+            z-index: 0;
+        }
+
+        img{
+            position: absolute;
+            right: 30px;
+            height: 30px;
+            width: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        &.selected
+        {
+            border: 1px solid black;
+        }
+    }
+
+    .popular-products
+    {        
+        max-width: 550px;
+        width: 90%;
+        min-width: 350px;
+        margin: 7rem auto 0 auto;
+        &>h3{
+            color: $border-color;
+            font-size: .8rem;
+            font-weight: 500;
+        }
+
+        ul{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: 170px;
+            grid-gap: 40px;
+            margin: 1.5rem 0;
+            li{                
+                div{
+                    width: 100%;
+                    height: 75%;
+                    border-radius: 20px;
+                    background: #F5F5F5;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    img{
+                        display: block;
+                        height: 75%;
+                        width: auto;
+                        transform: scale(1);
+                        transition:  transform .3s ease-out;
+                    }
+                    
+                    &:hover
+                    {
+                        img{
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+                h2{
+                    font-size: .9rem;
+                    white-space: nowrap;
+                    font-weight: 600;
+                    margin: 1rem 0;
+                    position: relative;
+                    display: inline-block;
+                    cursor: pointer;
+                    &::before
+                    {
+                        content: "";
+                        position: absolute;
+                        top: 100%;
+                        width: 100%;
+                        height: 2px;
+                        
+                    }
+                    &:hover
+                    {
+                        &::before
+                        {
+                            background: black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .search-props
+    {
+        max-width: 550px;
+        width: 90%;
+        min-width: 350px;
+        margin: 1.5rem auto 0 auto;
+        padding: 0 30px;
+        ul{
+            margin-top: 1.5rem;
+            width: 100%;
+            li{
+                font-size: 1.5rem;
+                margin: 1rem 0;
+                color: $border-color;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                cursor: pointer;
+                transition: color .3s;
+                &:hover
+                {
+                    color : rgb(69, 69, 69);
+                }
+            }
+        }
+    }
+}
+
+.categories-menu
+{
+    width: 100%;
+    background: white;
+    height: calc(100vh - 60px);
+    ul{
+        width: 100%;
+        margin: auto;
+        z-index: 2;
+        top: 60px;
+        position: absolute;
+        z-index: 2;
+        //background: white;
+    }
+
+    --height: 350px;
+
+    li{
+        width: 100%;
+        margin: auto;
+        padding: 1rem 2.5%;
+        border-bottom: 1px solid rgb(230, 230, 230);
+        font-weight: 500;
+        background: white;
+
+        &.products
+        {
+            font-family: $font-bold;
+        }
+    }
+
+    @keyframes transitionBottom {
+        from{
+            transform: translateY(0);
+        }to{
+            transform: translateY(var(--height));
+        }
+    }
+    @keyframes transitionTop {
+        from{
+            transform: translateY(var(--height));
+        }to{
+            transform: translateY(0px);
+        }
+    }
+
+    menu{
+        
+        width: 100%;
+        height: var(--height);
+        position: absolute;
+        z-index: 1;
+        border: 1px solid red;
+        background: darkcyan    ;
+
+        div{
+            height: 100%;
+            width: 350px;
+            border: 1px solid black;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}

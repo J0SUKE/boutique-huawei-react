@@ -1,0 +1,32 @@
+@font-face {
+    font-family:"Montserrat" ;
+    src: url("../../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "Montserrat-bold";
+    src: url("../../public//fonts/Montserrat/static/Montserrat-Bold.ttf");
+}
+
+$icons-color:#7F7F7F;
+$body-bg:#F1F3F5;
+$border-color:#999999;
+$font-bold:"Montserrat-bold";
+
+*,*::after,*::before
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    font-family: "Montserrat";
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+html
+{
+    scroll-behavior: smooth;
+}
