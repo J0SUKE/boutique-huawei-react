@@ -20,9 +20,11 @@ function App() {
             <Route path='/laptops/' element={<Laptops/>}>
               <Route path='/laptops/:id' element={<Laptops/>}/>
             </Route>
-            <Route path='/smartphones/:id' element={<SmartPhones/>}/>
-            <Route path='/smartwatches/:id' element={<SmartWatches/>}/>
-            <Route path='/displays/:id' element={<Displays/>}/>
+            <Route path='/smartphones/' element={<SmartPhones/>}>
+              <Route path='/smartphones/:id' element={<SmartPhones/>}/>
+            </Route>
+            <Route path='/smartwatches/' element={<SmartWatches/>}/>
+            <Route path='/displays/' element={<Displays/>}/>
         </Routes>
 
         {/* <Footer/> */}

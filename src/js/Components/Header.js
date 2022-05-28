@@ -23,6 +23,17 @@ const Header = () => {
     })
   },[])
 
+  useEffect(()=>{
+    if(menu==null){
+      HeaderNode.current.classList.remove("selected")
+      document.body.style.overflow = "auto";
+    }
+    else{
+      HeaderNode.current.classList.add("selected");
+      document.body.style.overflow = "hidden";
+    }
+  })
+
   let actualMenu = (()=>{
     switch (menu) {
       case "search":

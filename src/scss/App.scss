@@ -73,6 +73,11 @@ header
         border-bottom: 1px solid lightgray;
         background-color: white;
     }
+
+    &.selected
+    {
+        background: $body-bg;
+    }
 }
 
 .searchZone
@@ -221,30 +226,39 @@ header
 {
     width: 100%;
     background: white;
-    height: calc(100vh - 60px);
-    ul{
+    min-height: calc(100vh - 60px);
+
+    --height: 435px;
+
+    &>ul>li{
         width: 100%;
         margin: auto;
-        z-index: 2;
-        top: 60px;
-        position: absolute;
-        z-index: 2;
-        //background: white;
-    }
-
-    --height: 350px;
-
-    li{
-        width: 100%;
-        margin: auto;
-        padding: 1rem 2.5%;
-        border-bottom: 1px solid rgb(230, 230, 230);
+        padding: 0rem 2.5%;
         font-weight: 500;
         background: white;
-
+        position: relative;
+        user-select: none;
         &.products
         {
-            font-family: $font-bold;
+            &>p{
+                font-family: $font-bold;
+                border-bottom: 1px solid rgb(230, 230, 230);
+            }
+            
+        }
+
+        @for $i from 1 through 12 {
+            &:nth-of-type(#{$i}) {
+              z-index: $i;
+            }
+          }
+
+        &>p{
+            height: 100%;
+            padding: 1rem 0;
+            margin: 0;
+            z-index: 2;
+            cursor: pointer;
         }
     }
 
@@ -264,22 +278,106 @@ header
     }
 
     menu{
-        
         width: 100%;
         height: var(--height);
         position: absolute;
+        top: 100%;
         z-index: 1;
-        border: 1px solid red;
-        background: darkcyan    ;
+        background: white;
+        ul{ 
+            display: flex;
+            gap: 20px;
+            padding: 1rem 0;
+            border-bottom: 1px solid $border-color;
+            overflow-x: scroll;
+            &::-webkit-scrollbar{display: none;}
+            &::-webkit-scrollbar-thumb{display: none;}
+        }
 
-        div{
+        li{
             height: 100%;
-            width: 350px;
-            border: 1px solid black;
-            img{
-                width: 100%;
-                height: auto;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            div{
+                width: 300px;
+                height: 300px;
+                background: rgb(245, 245, 245);
+                border-radius: 20px;
+                overflow: hidden;
+            }
+            cursor: pointer;
+
+            &:first-of-type{
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover ;
+                }
+            }
+            &:not(:first-of-type){
+                div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                img{
+                    display: block;
+                    width: 70%;
+                    height: 70%;
+                    object-fit: contain ;
+                }
+            }
+
+            p{
+                font-size: .8rem;
+                font-weight: 700;
+                align-self: flex-start;
+                margin: 1.5rem 0 1rem 0;
             }
         }
+
+        .allProducts{
+            width: 100%;
+            margin: .6rem auto;
+            font-size: .9rem;
+            color: $border-color;
+            cursor: pointer;
+            a{
+                cursor: pointer;
+            }
+            transition:  color .2s;
+
+            &:hover
+            {
+                color: black;
+            }
+        }
+    }
+
+    &__items>li:nth-of-type(4) menu ul li
+    {
+        &:nth-of-type(2),&:nth-of-type(3)
+        {
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover ;
+            }
+        }        
+        
+    }
+
+    &__items{
+        width: 100%;
+        z-index: 2;
+        top: 60px;
+        position: absolute;
+        z-index: 3;
+        min-height: calc(100vh - 60px);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
     }
 }
