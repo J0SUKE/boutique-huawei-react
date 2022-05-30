@@ -127,6 +127,13 @@ function CarousselMiddle() {
     },500)
   }
 
+  function navigate(to) {
+    slides[index].current.classList.add("inactive");
+    setTimeout(()=>{
+      setIndex(to);
+    },500)
+  }
+
   return(
     <>
       <h1 className='text-indicators'>
@@ -148,61 +155,29 @@ function CarousselMiddle() {
       <h1 className='text-indicators'>
       <ul>
           <li className={index==0 ? 'active category' : 'category'} 
-              onClick={()=>{
-                slides[index].current.classList.add("inactive");
-                setTimeout(()=>{
-                  setIndex(0);
-                },500)
-              }}>Work</li>
+              onClick={()=>{navigate(0)}}>Work</li>
           <li>-</li>
           <li className={index==1 ? 'active category' : 'category'}
-              onClick={()=>{
-                slides[index].current.classList.add("inactive");
-            
-                setTimeout(()=>{
-                  setIndex(1);
-                },500)
-              }}
+              onClick={()=>{navigate(1)}}
           >Sport</li>
           <li>-</li>
           <li className={index==2 ? 'active category' : 'category'}
-              onClick={()=>{
-                slides[index].current.classList.add("inactive");
-            
-                setTimeout(()=>{
-                  setIndex(2);
-                },500)
+              onClick={()=>{navigate(2)
               }}
           >fitness</li>
         </ul>
         <ul>
           <li className={index==3 ? 'active category' : 'category'}
-              onClick={()=>{
-                slides[index].current.classList.add("inactive");
-            
-                setTimeout(()=>{
-                  setIndex(3);
-                },500)
-              }}
+              onClick={()=>{navigate(3)}}
           >Music</li>
           <li>-</li>
           <li className={index==4 ? 'active category' : 'category'}
-              onClick={()=>{
-                slides[index].current.classList.add("inactive");
-            
-                setTimeout(()=>{
-                  setIndex(4);
-                },500)
+              onClick={()=>{navigate(4)
               }}
           >Fashion</li>
           <li>-</li>
           <li className={index==5 ? 'active category' : 'category'}
-              onClick={()=>{
-                slides[index].current.classList.add("inactive");
-            
-                setTimeout(()=>{
-                  setIndex(5);
-                },500)
+              onClick={()=>{navigate(5)
               }}
           >Home</li>
         </ul>
