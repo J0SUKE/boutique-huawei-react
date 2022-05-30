@@ -4,16 +4,8 @@ import useTranslate from '../Components/customHooks/useTranslate';
 
 const Home = () => {
     
-    const [vitrine1Data,setvitrine1Data] = useState([]);
-
-    const img1 = useTranslate();
-    const img2 = useTranslate();
-    const img3 = useTranslate();
-    const img4 = useTranslate();
-    const img5 = useTranslate();
-    const img6 = useTranslate();
-
-    const imgs = [img1,img2,img3,img4,img5,img6];
+    // chargement des données depuis l'API
+    const [vitrine1Data,setvitrine1Data] = useState([]);  
 
     useEffect(()=>{
       let data = [{},{},{},{},{},{}];
@@ -42,10 +34,28 @@ const Home = () => {
       })
     },[])
   
+    //---paralax sur la premiere grid
+
+    const img1 = useTranslate();
+    const img2 = useTranslate();
+    const img3 = useTranslate();
+    const img4 = useTranslate();
+    const img5 = useTranslate();
+    const img6 = useTranslate();
+
+    const imgs = [img1,img2,img3,img4,img5,img6];
+    
     return(
       <div className='content'>
         <div className="banner hero_banner">
-
+          <div className="hero_banner__content">
+            <h1>HUAWEI WATCH FIT 2</h1>
+            <p>Écran HUAWEI FullView de 1,74 pouce | Appels Bluetooth | Suivi d’un mode de vie sain</p>
+            <div className="btns">
+              <button><Link to={`/smartwatches/4`}>En savoir plus</Link></button>
+              <button><Link to={`/smartwatches/4`}>Acheter</Link></button>
+            </div>
+          </div>
         </div>
         <ul className="vitrine_grid vitrine_grid-1">
           {
@@ -81,11 +91,53 @@ const Home = () => {
         </div>
 
         <ul className="vitrine_grid vitrine-grid-2">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li className='vitrine-grid-2__item'>
+            <div className="vitrine-grid-2__item__img">
+              <img src="https://consumer.huawei.com/content/dam/huawei-cbg-site/weu/fr/mkt/homepage/sub-banner/matebook-series/pc.jpg" alt="" />
+            </div>
+            <div className="vitrine-grid-2__item__content">
+              <h1>HUAWEI Matebook Series</h1>
+              <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+            </div>
+          </li>
+          <li className='vitrine-grid-2__item'>
+            <div className="vitrine-grid-2__item__img">
+              <img src="https://consumer.huawei.com/content/dam/huawei-cbg-site/weu/fr/e-commerce/homepage/sub-banner/img-0302/monitor-1.jpg" alt="" />
+            </div>
+            <div className="vitrine-grid-2__item__content">
+              <h1>HUAWEI Écran Series</h1>
+              <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+            </div>
+          </li>
+          <li className='vitrine-grid-2__item'>
+            <div className="vitrine-grid-2__item__img">
+              <img src="https://consumer.huawei.com/content/dam/huawei-cbg-site/weu/fr/e-commerce/homepage/hero-banner/wr1649232xd/pc.jpg" alt="" />
+            </div>
+            <div className="vitrine-grid-2__item__content">
+              <h1>Membres Plateforme Huawei</h1>
+              <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+            </div>
+          </li>
+          <li className='vitrine-grid-2__item'>
+            <div className="vitrine-grid-2__item__img">
+              <img src="https://consumer.huawei.com/content/dam/huawei-cbg-site/weu/fr/v4/mkt/homepage/sub-banner/huawei-store/web.jpg" alt="" />
+            </div>
+            <div className="vitrine-grid-2__item__content">
+              <h1>HUAWEI STORE</h1>
+              <p>Découvrez notre offres exclusives</p>
+              <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+            </div>
+          </li>
+          <li className='vitrine-grid-2__item'>
+            <div className="vitrine-grid-2__item__img">
+              <img src="https://consumer.huawei.com/content/dam/huawei-cbg-site/weu/fr/v4/mkt/homepage/sub-banner/appgallery/appgallery.jpg" alt="" />
+            </div>
+            <div className="vitrine-grid-2__item__content">
+              <h1>AppGallery</h1>
+              <p>Plus d’un million d’applications à portée de main</p>
+              <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+            </div>
+          </li>
         </ul>
 
       </div>
@@ -195,8 +247,8 @@ function CarousselMiddle() {
               <p className='price'>999,99 €</p>
               <span>Ou payer en 4 fois</span>
               <div className="btns">
-                <button><Link to={'/'}>En savoir plus</Link></button>
-                <button><Link to={'/'}>Acheter</Link></button>
+                <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+                <button><Link to={'/indisponible/'}>Acheter</Link></button>
               </div>
             </div>
           </div>
@@ -211,8 +263,8 @@ function CarousselMiddle() {
               <p className='price'>249,99 €</p>
               <span>Ou payer en 4 fois</span>
               <div className="btns">
-                <button><Link to={'/'}>En savoir plus</Link></button>
-                <button><Link to={'/'}>Acheter</Link></button>
+                <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+                <button><Link to={'/indisponible/'}>Acheter</Link></button>
               </div>
             </div>
           </div>
@@ -227,8 +279,8 @@ function CarousselMiddle() {
               <p className='price'>109,99 €</p>
               <span>Ou payer en 4 fois</span>
               <div className="btns">
-                <button><Link to={'/'}>En savoir plus</Link></button>
-                <button><Link to={'/'}>Acheter</Link></button>
+                <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+                <button><Link to={'/indisponible/'}>Acheter</Link></button>
               </div>
             </div>
           </div>
@@ -243,8 +295,8 @@ function CarousselMiddle() {
               <p className='price'>129,99 €</p>
               <span>Ou payer en 4 fois</span>
               <div className="btns">
-                <button><Link to={'/'}>En savoir plus</Link></button>
-                <button><Link to={'/'}>Acheter</Link></button>
+                <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+                <button><Link to={'/indisponible/'}>Acheter</Link></button>
               </div>
             </div>
           </div>
@@ -259,8 +311,8 @@ function CarousselMiddle() {
               <p className='price'>999,99 €</p>
               <span>Ou payer en 4 fois</span>
               <div className="btns">
-                <button><Link to={'/'}>En savoir plus</Link></button>
-                <button><Link to={'/'}>Acheter</Link></button>
+                <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+                <button><Link to={'/indisponible/'}>Acheter</Link></button>
               </div>
             </div>
           </div>
@@ -275,8 +327,8 @@ function CarousselMiddle() {
               <p className='price'>199,99 €</p>
               <span>Ou payer en 4 fois</span>
               <div className="btns">
-                <button><Link to={'/'}>En savoir plus</Link></button>
-                <button><Link to={'/'}>Acheter</Link></button>
+                <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
+                <button><Link to={'/indisponible/'}>Acheter</Link></button>
               </div>
             </div>
           </div>
@@ -289,6 +341,8 @@ function CarousselMiddle() {
     </>
   )
 }
+
+
 
 
 
