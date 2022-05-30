@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import {Link} from 'react-router-dom';
 
 const Laptops = () => {
 
@@ -101,8 +102,8 @@ function ProductVitrine({product:{gamme,size,name,subtitle,desc,price,id}}) {
           <p>à partir de {price} €</p>
           <span>Ou payer en 4 fois</span>
           <div className="btns">
-            <button>En savoir plus</button>
-            <button>Acheter</button>
+            <button><Link to={`/laptops/${id}`}>En savoir plus</Link></button>
+            <button><Link to={`/laptops/${id}`}>Acheter</Link></button>
           </div>
         </div>
         <div className="presentation-product__right">
