@@ -229,8 +229,14 @@ header
     width: 100%;
     background: white;
     min-height: calc(100vh - 60px);
-
+    height: calc(100vh - 60px);
+    overflow-y: hidden;
     --height: 435px;
+
+    /* width */
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &>ul>li{
         width: 100%;
@@ -377,9 +383,17 @@ header
         top: 60px;
         position: absolute;
         z-index: 3;
-        min-height: calc(100vh - 60px);
         overflow-y: scroll;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
+        border: 1px solid transparent;
+        min-height: calc(100vh - 60px);
+        &::-webkit-scrollbar
+        {
+            display: none;
+        }
+        scrollbar-color: transparent transparent;
+        li:last-of-type
+        {
+            height: 100px;
+        }
     }
 }

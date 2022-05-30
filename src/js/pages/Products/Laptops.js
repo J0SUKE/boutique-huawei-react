@@ -30,7 +30,7 @@ const Laptops = () => {
     [matebook.current,x.current,d.current,e.current].forEach((item)=>{
         observer.observe(item);  
     })
-      
+
   },[])
   
   return (
