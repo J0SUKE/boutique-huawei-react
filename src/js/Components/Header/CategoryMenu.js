@@ -19,9 +19,9 @@ const CategoryMenu = () => {
   useEffect(()=>{
     fetch("https://raw.githubusercontent.com/J0SUKE/react-boutique-data/main/laptops.json")
     .then(resp=>resp.json())
-    .then(data=>setlaptops([data[5],data[1],data[2]]))
+    .then(data=>setlaptops([data[4],data[1],data[2]]))
     
-    fetch("https://raw.githubusercontent.com/J0SUKE/react-boutique-data/main/smartphone.json")
+    fetch("https://raw.githubusercontent.com/J0SUKE/react-boutique-data/main/smartphones.json")
     .then(resp=>resp.json())
     .then(data=>setsmartphones([data[1],data[2],data[0]]))
     
@@ -103,7 +103,7 @@ const CategoryMenu = () => {
         </li>
         <li className="products" index="3">
           <p onClick={(e)=>{openMenu(e,SmartWatchesMenuNode)}}>SmartWatches</p>
-          <Menu menuNode={SmartWatchesMenuNode} setMenu={setMenu} category={"smartWatches"} products={smartWatches}/>
+          <Menu menuNode={SmartWatchesMenuNode} setMenu={setMenu} category={"smartwatches"} products={smartWatches}/>
         </li>
         <>
         <li><p>Assistance</p></li>

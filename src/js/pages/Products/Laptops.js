@@ -96,7 +96,7 @@ function ProductVitrine({product:{gamme,size,name,subtitle,desc,price,id}}) {
       <div className="presentation-product">
         <div className="presentation-product__left">
           <h3>{size} pouces</h3>
-          <h1>{name}</h1>
+          <h1><strong>HUAWEI</strong> {name}</h1>
           <h2>{subtitle}</h2>
           <h4>{desc}</h4>
           <p>à partir de {price} €</p>

@@ -1,16 +1,10 @@
-@font-face {
-    font-family:"Montserrat" ;
-    src: url("../../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
-}
-@font-face {
-    font-family: "Montserrat-bold";
-    src: url("../../public//fonts/Montserrat/static/Montserrat-Bold.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
 
 $icons-color:#7F7F7F;
 $body-bg:#F1F3F5;
 $border-color:#999999;
-$font-bold:"Montserrat-bold";
+$font-bold:"Manrope";
 
 *,*::after,*::before
 {
@@ -18,7 +12,7 @@ $font-bold:"Montserrat-bold";
     padding: 0;
     box-sizing: border-box;
     list-style-type: none;
-    font-family: "Montserrat";
+    font-family: "Manrope";
 }
 
 a{

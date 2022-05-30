@@ -55,7 +55,7 @@ const Header = () => {
     <header ref={HeaderNode}>
       <HeaderContext.Provider value={HeaderContextValue}>
         <div className="header">
-          <div className="logo">
+          <div className="logo" onClick={()=>{setMenu(null)}}>
             <Link to={'/'}>
               <img src="/images/logo.svg" alt="" />
             </Link>

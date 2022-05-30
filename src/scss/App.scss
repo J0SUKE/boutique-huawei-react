@@ -1,6 +1,7 @@
 @import "./globals.scss";
 @import "./Laptops.scss";
 @import "./Home.scss";
+@import "./Product.scss";
 
 body{
     background: $body-bg;
@@ -249,7 +250,7 @@ header
         &.products
         {
             &>p{
-                font-family: $font-bold;
+                font-weight: 800;
                 border-bottom: 1px solid rgb(230, 230, 230);
             }
             

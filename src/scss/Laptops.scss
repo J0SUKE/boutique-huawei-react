@@ -110,7 +110,6 @@
         font-size: clamp(2rem,4vw,4rem);
         margin: auto;
         text-align: center;
-        font-family: $font-bold;
     }
     &>h3{
         font-size: 1.2rem;
@@ -174,9 +173,9 @@
         }
 
         h1{
-            font-family: $font-bold;
             margin: 1rem 0;
             font-size: clamp(2rem,2.5vw,4rem);
+            font-weight: 300;
         }
 
         h2{
@@ -184,15 +183,14 @@
         }
         h4{
             margin: 2rem 0;
-            font-size: .8rem;
-            line-height: 1.2rem;
+            line-height: 1.5rem;
             color: $border-color;
-            font-weight: 300;
+            font-weight: 500;
+            font-size: .9rem;
         }
 
         p{
             font-weight: 400;
-            font-family: $font-bold;
         }
 
         span{
@@ -216,7 +214,7 @@
             border-radius: 25px;
             padding: 0 22.5px;
             outline: none;
-            font-family: $font-bold;
+            font-weight: 800;
             cursor: pointer;
         }
         button:first-of-type

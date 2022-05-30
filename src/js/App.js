@@ -8,6 +8,7 @@ import Laptops from './pages/Products/Laptops';
 import SmartPhones from './pages/Products/SmartPhones';
 import SmartWatches from './pages/Products/SmartWatches'
 import Displays from './pages/Products/Displays';
+import Product from './pages/Product';
 
 function App() {
   return (
@@ -18,14 +19,18 @@ function App() {
             <Route path='/' element={<Home/>}/>
             <Route path='/shop/cart' element={<Cart/>}/>
             <Route path='/indisponible/' element={<Cart/>}/>
-            <Route path='/laptops/' element={<Laptops/>}>
-              <Route path='/laptops/:id' element={<Laptops/>}/>
-            </Route>
-            <Route path='/smartphones/' element={<SmartPhones/>}>
-              <Route path='/smartphones/:id' element={<SmartPhones/>}/>
-            </Route>
+            
+            <Route path='/laptops/' element={<Laptops/>}/>
+            <Route path='/laptops/:id' element={<Product/>}/>
+            
+            <Route path='/smartphones/' element={<SmartPhones/>}/>
+            <Route path='/smartphones/:id' element={<Product/>}/>
+            
             <Route path='/smartwatches/' element={<SmartWatches/>}/>
-            <Route path='/displays/' element={<Displays/>}/>
+            <Route path='/smartwatches/:id' element={<Product/>}/>
+            
+            <Route path='/tablettes/' element={<Displays/>}/>
+            <Route path='/tablettes/:id' element={<Product/>}/>
         </Routes>
 
         {/* <Footer/> */}
