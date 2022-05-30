@@ -153,17 +153,17 @@
     {
         position: relative;
         height: 100%;
-
         &>p{
             margin: 2rem 2rem;
             font-size: 1.2rem;
             font-weight: 600;
         }
     }
-    
+
+
     ul{
         width: 100%;
-        font-size: 6vw;
+        font-size: clamp(1.5rem,6vw,5.5rem);
         display: flex;
         flex-wrap: wrap;
         li{
@@ -183,7 +183,18 @@
         li.active{
             opacity: 1;
         }
-        
+        @media screen and(max-width:810px) {
+            width: 100%;
+            ul{
+                width: 100%;
+                
+                justify-content: space-between;
+                li{
+                    margin: 0;
+                }
+            }
+        }
+
     }
 
     .text-indicators:first-of-type{
@@ -236,10 +247,12 @@
     }
 
     .caroussel-item
-    {
+    {   
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
+    
         &__left
         {
             width: 50%;
@@ -261,7 +274,7 @@
             align-self: center;
             padding-top: 5rem;
             h1{
-                font-size: 2.5rem;
+                font-size: clamp(1rem,3vw,2.5rem);
             }
             .desc{
                 color: rgb(111, 111, 111);
@@ -306,6 +319,7 @@
                     padding: 0 22.5px;
                     outline: none;
                     font-family: $font-bold;
+                    border: none;
                     cursor: pointer;
                 }
                     button:first-of-type
@@ -368,6 +382,36 @@
         &.invisible
         {
             display: none;
+        }
+
+        @media screen and (max-width:1200px)
+        {
+            .desc
+            {
+                max-height: 30%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        @media screen and (max-width:900px) {
+            flex-direction: column;
+            justify-content: flex-start;
+            .caroussel-item__right
+            {
+                width: 100%;
+            }
+            .caroussel-item__left
+            {
+                height: 30%;
+                img{
+                    height: 100%;
+                    width: auto;
+                }
+                width: 100%;
+                justify-content: flex-start;
+                align-items: center;
+            }
         }
 
     }
@@ -440,8 +484,59 @@
         button.inactive
         {
             cursor: default;
-            //background-color: rgb(247, 247, 247);
             opacity: 0.3;
         }
+        @media screen and (max-width:580px)
+        {
+            top: 50%;
+            transform: translateY(-50%);
+            left: -2rem;
+            right: -2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row-reverse;
+            button{
+                background-color: transparent;
+                transition: none;
+                &:not(.inactive):hover
+                {
+                    background-color: transparent;
+                    
+                }
+
+                &:last-child{
+                    &::before
+                    {
+                        border-bottom: 3px solid black;
+                        border-left: 3px solid black;   
+                    }
+                    &:not(.inactive):hover
+                    {
+                        &::before
+                        {
+                            border-bottom: 3px solid black;
+                            border-left: 3px solid black;   
+                        }   
+                    }
+                }
+
+                &:first-child{
+                    &::before
+                    {
+                        border-top: 3px solid black;
+                        border-right: 3px solid black;   
+                    }
+                    &:not(.inactive):hover
+                    {
+                        &::before
+                        {
+                            border-top: 3px solid black;
+                            border-right: 3px solid black;   
+                        }   
+                    }
+                }
+            }
+        }
+        
     }
 }
