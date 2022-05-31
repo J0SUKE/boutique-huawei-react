@@ -54,8 +54,7 @@
     &>h1{
         text-align: center;
         margin: 5rem;
-        font-size: clamp(2rem,6vw,6rem);
-        white-space: nowrap;
+        font-size: clamp(2rem,5vw,5rem);
         font-weight: 400;
     }
     &>img{
@@ -63,5 +62,106 @@
         height: auto;
         margin: auto;
         display: block;
+    }
+}
+
+.specs
+{
+    width: 95%;
+    margin: 2rem auto 0 auto;
+    max-width: 1300px;
+}
+
+.spec-category
+{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr;
+    padding: 8rem 0;
+    border-top: 1px solid lightgray;
+
+    @media screen and(max-width:750px) {
+        padding: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        ul{
+            margin-top: 2rem;
+            width: 100%;
+            li{
+                width: 100%;
+                
+            }
+        }
+    }
+
+    h2{
+        font-size: 1.2rem;
+    }
+    ul{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    li{
+        padding-bottom: 2rem;
+        height: 100%;
+        p{
+            color: $border-color;
+            //margin-top: 1rem;
+        }
+        span{
+            display: block;
+            margin-top: 1rem;
+            color: rgb(188, 188, 188);
+            font-size: 1.1rem;
+            line-height: 1.5rem;
+        }
+        h2+p
+        {
+            margin-top: 1rem;
+        }
+        p:not(:first-of-type)
+        {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.bottom-banner
+{
+    margin: auto;
+    width: 95%;
+    line-height: 1.5rem;
+    color: rgb(131, 131, 131);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid lightgray;
+    ul{
+        display: flex;
+        margin: 2rem 0;
+        li:first-of-type
+        {
+            padding-right: 2rem;
+        }
+        li:not(:first-of-type){
+            padding: 0 2rem;
+            position: relative;
+            &::before
+            {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                height: 60%;
+                border: 1px solid $border-color;
+                transform: rotate(10deg) translateY(-50%);
+            }
+        }
+
+        li{
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
     }
 }
