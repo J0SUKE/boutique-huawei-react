@@ -58,8 +58,8 @@
         font-weight: 400;
     }
     &>img{
-        width: 50%;
-        height: auto;
+        max-height: 300px;
+        width: auto;
         margin: auto;
         display: block;
     }
@@ -68,7 +68,7 @@
 .specs
 {
     width: 95%;
-    margin: 2rem auto 0 auto;
+    margin: 4rem auto 0 auto;
     max-width: 1300px;
 }
 
