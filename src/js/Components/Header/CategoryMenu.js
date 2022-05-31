@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import SmartWatches from '../../pages/Products/SmartWatches';
 import {HeaderContext} from '../Header';
 
 
