@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import SearchMenu from './Header/SearchMenu'
 import CategoryMenu from './Header/CategoryMenu';
 
@@ -9,6 +9,7 @@ const Header = () => {
   
   const HeaderNode = useRef();
   const [menu,setMenu] = useState(null);
+  const location = useLocation();
 
   let HeaderContextValue = {
     menu,

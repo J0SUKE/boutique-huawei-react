@@ -34,7 +34,7 @@ const Laptops = () => {
   },[])
   
   return (
-    <>
+    <div className='laptops-page'>
       <div className="gammes-images">
         <ul>
           <li><img src="/images/products/laptops/gammes/x.png" alt="" /></li>
@@ -87,7 +87,7 @@ const Laptops = () => {
           : 
           null}
       </div>
-    </>
+    </div>
   )
 }
 

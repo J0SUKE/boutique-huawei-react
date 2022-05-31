@@ -6,6 +6,28 @@
     min-height: calc(100vh - 60px);
 }
 
+.buy-btn{
+    background: #AD0824;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 9px 26px;
+    border-radius: 30px;
+    font-weight: 800;
+    cursor: pointer;
+    &:hover
+    {
+        opacity: 0.7;
+    }
+    a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .topBanner
 {
     margin-top: 60px;
@@ -16,28 +38,6 @@
         margin: auto;
         display: flex;
         justify-content: space-between;
-
-        button{
-            background: #AD0824;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 9px 26px;
-            border-radius: 30px;
-            font-weight: 800;
-            cursor: pointer;
-            &:hover
-            {
-                opacity: 0.7;
-            }
-            a{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-            }
-        }
     }
     
     h1{
@@ -163,5 +163,11 @@
             font-size: 1.1rem;
             font-weight: 400;
         }
+    }
+
+    div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }

@@ -25,20 +25,23 @@ function ProductsGrid()
 
 function ProductsGridContent({url,category}) {
   const [data,setData] = useData(url);
-  const overlay = useRef();
   const productGrid = useRef();
+  const banner = useRef();
 
   useEffect(()=>{
     window.addEventListener("scroll",()=>{
       const {scrollTop,clientHeight} = document.documentElement;
       let percentage = scrollTop/clientHeight;
-      if (overlay.current && productGrid.current && percentage <= 1 ) 
+      if (productGrid.current && percentage <= 1 ) 
       {
-          overlay.current.style.opacity = percentage*2;
+          banner.current.style.filter = `brightness(${1-(percentage*2)})`
+          banner.current.style.background= `rgba(0, 0, 0, ${percentage*1.5})`;
+          
           productGrid.current.style.transform = `translateY(${-percentage*100}vh)`;
       } 
     })
   },[])
+
 
   useEffect(()=>{
     fetch(url)
@@ -48,7 +51,7 @@ function ProductsGridContent({url,category}) {
 
   return (
     <div className="smartphones-content">
-      <div className="hero-banner">
+      <div className="hero-banner" ref={banner}>
         <div className="hero-banner__left"> 
           <div>
             <h1><strong>HUAWEI</strong> {data[0]?.name}</h1>
@@ -63,11 +66,10 @@ function ProductsGridContent({url,category}) {
         <div className="hero-banner__img">
           <img src={`/images/products/${category}/${data[0]?.id}.png`} alt="" />
         </div>
-        <div className="hero-banner__bg">
+        <div className={`hero-banner__bg hero-banner__bg-${category}`}>
 
         </div>
       </div>
-      <div className="overlay" ref={overlay}></div>
       <div className="products-grid" ref={productGrid}>
           <div className="products-grid__content">
             <h1>{category}</h1>

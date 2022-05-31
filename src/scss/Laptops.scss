@@ -1,5 +1,10 @@
 @import "./globals.scss";
 
+.laptops-page
+{
+    scroll-behavior: smooth;
+}
+
 .gammes-images
 {
     margin-top: 60px;
@@ -32,7 +37,6 @@
         display: none;
     }
 }
-
 
 .gammes-links
 {

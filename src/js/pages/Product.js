@@ -20,7 +20,7 @@ const Product = () => {
       <div className="topBanner">
         <div className="topBanner__content">
           <h1><strong>HUAWEI</strong> {data.name}</h1>
-          <button><Link to={`/${category}/${id}/buy/`}>Acheter</Link></button>
+          <button className='buy-btn'><Link to={`/${category}/${id}/buy/`}>Acheter</Link></button>
         </div>
         
       </div>
@@ -47,11 +47,15 @@ const Product = () => {
           
         <section className='bottom-banner'>
           <p>*Les caractéristiques précédentes sont des valeurs théoriques basées sur la conception du produit. Pour fournir les informations, les caractéristiques et les fonctionnalités exactes du produit, Huawei est susceptible d'ajuster en temps réel les caractéristiques précédentes afin qu'elles correspondent aux performances, aux caractéristiques, aux index et aux composants du produit réel. Les informations sur le produit peuvent faire l'objet de modifications et d'ajustements de cette nature sans avis préalable.</p>
-          <ul>
-            <li><Link to={`/`}>Accueil</Link></li>
-            <li><Link to={`/${category}/`}>{category}</Link></li>
-            <li><Link to={`/${category}/${id}/buy`}>buy HUAWEI {data.name}</Link></li>
-          </ul>
+          <div>
+            <ul>
+              <li><Link to={`/`}>Accueil</Link></li>
+              <li><Link to={`/${category}/`}>{category}</Link></li>
+              <li><Link to={`/${category}/${id}/buy`}>buy HUAWEI {data.name}</Link></li>
+            </ul>
+            <button className='buy-btn'><Link to={`/${category}/${id}/buy/`}>Acheter</Link></button>
+          </div>
+          
         </section>
       </main>
     </div>
