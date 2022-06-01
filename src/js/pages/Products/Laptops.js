@@ -47,7 +47,7 @@ const Laptops = () => {
         <GammesLinks visible={visible}/>
       </div>
       <div className="hero product x" id='x' ref={x}>
-        <img src="/images/blue-logo.jpg" alt="" />
+        <img src="/images/blue-logo.png" alt="" />
         <h1>Le Pro par excellence</h1>
         <h3>Gamme MateBook X</h3>
           {data.length? <ProductVitrine product={data[0]}/> : null}
@@ -103,11 +103,11 @@ function ProductVitrine({product:{gamme,size,name,subtitle,desc,price,id}}) {
           <span>Ou payer en 4 fois</span>
           <div className="btns">
             <button><Link to={`/laptops/${id}`}>En savoir plus</Link></button>
-            <button><Link to={`/laptops/${id}`}>Acheter</Link></button>
+            <button><Link to={`/laptops/${id}/buy`}>Acheter</Link></button>
           </div>
         </div>
         <div className="presentation-product__right">
-            <img src={`/images/products/laptops/${id}.jpg`} alt="" />
+            <img src={`/images/products/laptops/${id}.png`} alt="" />
         </div>
       </div>
     

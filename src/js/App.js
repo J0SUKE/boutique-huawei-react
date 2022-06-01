@@ -8,7 +8,9 @@ import Cart from './pages/Cart';
 import Laptops from './pages/Products/Laptops';
 import ProductsGrid from './pages/Products/ProductsGrid';
 import Product from './pages/Product';
+import Buy from './pages/Buy';
 import { useLocation } from 'react-router-dom';
+
 
 function ScrollToTop()
 {
@@ -50,6 +52,9 @@ function App() {
             
             <Route path='/tablettes/' element={<ProductsGrid/>}/>
             <Route path='/tablettes/:id' element={<Product/>}/>
+
+            <Route path='/:category/:id/buy' element={<Buy/>}/>
+
         </Routes>
 
         {/* <Footer/> */}

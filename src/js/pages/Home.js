@@ -53,7 +53,7 @@ const Home = () => {
             <p>Écran HUAWEI FullView de 1,74 pouce | Appels Bluetooth | Suivi d’un mode de vie sain</p>
             <div className="btns">
               <button><Link to={`/smartwatches/4`}>En savoir plus</Link></button>
-              <button><Link to={`/smartwatches/4`}>Acheter</Link></button>
+              <button><Link to={`/smartwatches/4/buy`}>Acheter</Link></button>
             </div>
           </div>
         </div>
