@@ -20,7 +20,7 @@ const Home = () => {
       })
       .then((resp)=>resp.json())
       .then((resp)=>{
-        data[1] = resp[5];
+        data[1] = resp[4]; 
       }).then(()=>{
         return fetch("https://raw.githubusercontent.com/J0SUKE/react-boutique-data/main/smartphones.json")
       })
@@ -49,7 +49,7 @@ const Home = () => {
       <div className='content'>
         <div className="banner hero_banner">
           <div className="hero_banner__content">
-            <h1>HUAWEI WATCH FIT 2</h1>
+            <h1><strong>HUAWEI</strong> WATCH FIT 2</h1>
             <p>Écran HUAWEI FullView de 1,74 pouce | Appels Bluetooth | Suivi d’un mode de vie sain</p>
             <div className="btns">
               <button><Link to={`/smartwatches/4`}>En savoir plus</Link></button>
@@ -69,8 +69,8 @@ const Home = () => {
                     <h2>{item.price} €</h2>
                     <span>Ou payer en 4 fois</span>
                     <div className="btns">
-                      <button>En savoir plus</button>
-                      <button>Acheter</button>
+                      <button><Link to={`/${item.category}/${item.id}`}>En savoir plus</Link></button>
+                      <button><Link to={`/${item.category}/${item.id}/buy`}>Acheter</Link></button>
                     </div>
                   </div>
                   <div className="vitrine1-item__right">
@@ -247,8 +247,8 @@ function CarousselMiddle() {
               <p className='price'>999,99 €</p>
               <span>Ou payer en 4 fois</span>
               <div className="btns">
-                <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
-                <button><Link to={'/indisponible/'}>Acheter</Link></button>
+                <button><Link to={'/laptops/2/'}>En savoir plus</Link></button>
+                <button><Link to={'/laptops/2/buy'}>Acheter</Link></button>
               </div>
             </div>
           </div>
@@ -311,8 +311,8 @@ function CarousselMiddle() {
               <p className='price'>999,99 €</p>
               <span>Ou payer en 4 fois</span>
               <div className="btns">
-                <button><Link to={'/indisponible/'}>En savoir plus</Link></button>
-                <button><Link to={'/indisponible/'}>Acheter</Link></button>
+                <button><Link to={'/smartwatches/1/'}>En savoir plus</Link></button>
+                <button><Link to={'/indisponible/1/buy'}>Acheter</Link></button>
               </div>
             </div>
           </div>

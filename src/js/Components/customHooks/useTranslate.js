@@ -3,7 +3,7 @@ import { useEffect,useRef } from "react";
 
 export default function useTranslate() {
     const lastImg = useRef();
-  
+
     function handleScroll() {
       if (lastImg.current) 
         {
@@ -13,6 +13,10 @@ export default function useTranslate() {
           
           if (top<clientHeight) {;
             lastImg.current.style.transform = `translateY(${(((top+bottom)/10))}px)`;  
+          }
+          else
+          {
+            lastImg.current.style.transform = `translateY(${(((clientHeight)/10))}px)`;  
           }
         }
     }

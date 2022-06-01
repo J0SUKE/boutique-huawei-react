@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {HeaderContext} from '../Header';
 
 
-const CategoryMenu = () => {
+const CategoryMenu = ({menuRef}) => {
   
   const {menu,setMenu} = useContext(HeaderContext);
   
@@ -48,6 +48,7 @@ const CategoryMenu = () => {
       for (let i = 0; i < listItems.length; i++) 
       {
         listItems[i].style.animation = `none`;  
+        listItems[i].style.opacity = 1;
       } 
 
       let top = e.target.parentNode.getBoundingClientRect().top;
@@ -60,6 +61,7 @@ const CategoryMenu = () => {
       {
         if (Number(e.target.parentNode.getAttribute("index")) < i) 
         {
+          console.log(getComputedStyle(listItems[i])["animation-name"]);;
           if (category==e.target.textContent) {
             listItems[i].style.animation = `transitionTop .4s forwards`;  
           }
@@ -86,22 +88,34 @@ const CategoryMenu = () => {
   }
 
   return (
-    <section className='categories-menu'>
+    <section className={menu=='category' ? 'categories-menu active' : 'categories-menu'} ref={menuRef}>
       <ul className='categories-menu__items'>
         <li className="products" index="0">
           <p onClick={(e)=>{openMenu(e,LaptopsMenuNode)}}>Ordinateurs</p>
+          <div className="append-btn">
+            <span></span><span></span>
+          </div>
           <Menu menuNode={LaptopsMenuNode} setMenu={setMenu} category={"laptops"} products={laptops}/>
         </li>
         <li className="products" index="1">
           <p onClick={(e)=>{openMenu(e,LaptopsMenuNode)}}>Smartphones</p>
+          <div className="append-btn">
+            <span></span><span></span>
+          </div>
           <Menu menuNode={smartPhoneMenuNode} setMenu={setMenu} category={"smartphones"} products={smartphones}/>
         </li>
         <li className="products" index="2">
           <p onClick={(e)=>{openMenu(e,TablettesMenuNode)}}>Tablettes</p>
+          <div className="append-btn">
+            <span></span><span></span>
+          </div>
           <Menu menuNode={TablettesMenuNode} setMenu={setMenu} category={"tablettes"} products={tablettes}/>
         </li>
         <li className="products" index="3">
           <p onClick={(e)=>{openMenu(e,SmartWatchesMenuNode)}}>SmartWatches</p>
+          <div className="append-btn">
+            <span></span><span></span>
+          </div>
           <Menu menuNode={SmartWatchesMenuNode} setMenu={setMenu} category={"smartwatches"} products={smartWatches}/>
         </li>
         <>

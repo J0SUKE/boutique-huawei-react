@@ -90,6 +90,33 @@ header
     min-height: calc(100vh - 60px);
     background: white;
     border-top: 1px solid lightgray;
+    
+    &.active
+    {
+        opacity: 0;
+        animation: addMenu .5s forwards ;
+        @keyframes addMenu {
+            from{
+                opacity: 0;
+            }to{
+                opacity: 1;
+            }
+        }   
+    }
+
+    &.inactive
+    {
+        opacity: 1;
+        animation: removeMenu .5s forwards ;
+        @keyframes removeMenu {
+            from{
+                opacity: 1;
+            }to{
+                opacity: 0;
+            }
+        }   
+    }
+
     form
     {
         border: 1px solid $border-color;
@@ -143,8 +170,22 @@ header
             grid-template-columns: repeat(3,1fr);
             grid-template-rows: 170px;
             grid-gap: 40px;
+            //justify-content: center;
             margin: 1.5rem 0;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            scrollbar-color: transparent transparent;
+            &::-webkit-scrollbar
+            {
+                display: none;
+            }
+            @media screen and(max-width:640px) {
+                // grid-template-columns: repeat(2,1fr);
+                // grid-template-rows: repeat(2,170px) ;
+            }
             li{                
+                max-width: 180px;
+                min-width: 150px;
                 div{
                     width: 100%;
                     height: 75%;
@@ -221,6 +262,9 @@ header
                 {
                     color : rgb(69, 69, 69);
                 }
+                strong{
+                    color: black;
+                }
             }
         }
     }
@@ -233,11 +277,78 @@ header
     min-height: calc(100vh - 60px);
     height: calc(100vh - 60px);
     overflow-y: hidden;
+    
+    @keyframes animateListItem {
+        from{
+            transform: translateY(50%);
+            opacity: 0;
+        }to{
+            transform: translateY(0%);
+            opacity: 1;
+        }
+    }
+
     --height: 435px;
 
     /* width */
     &::-webkit-scrollbar {
         display: none;
+    }
+
+    &.active
+    {
+        opacity: 0;
+        animation: menuApear .8s forwards;
+        @keyframes menuApear {
+            from{
+                opacity: 0;
+            }to{
+                opacity: 1;
+            }
+        }
+        &>ul>li{
+            opacity: 0;
+            @for $i from 1 through 12 {
+                &:nth-of-type(#{$i}) {
+                  animation: animateListItem .4s ($i * 0.1s) forwards ease-in-out;
+                }
+              }
+        }
+        menu{
+            opacity: 0;
+            animation: menudelay .1s 2s forwards;
+            @keyframes menudelay {
+                from{
+                    opacity: 0;
+                }to{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &.inactive
+    {
+        animation: menuDisapear .5s forwards;
+        @keyframes menuDisapear {
+            from{
+                opacity: 1;
+            }to{
+                opacity: 0;
+            }
+        }
+        @keyframes removeAnimateListItem {
+            from{
+                transform: translateY(0%);
+                opacity: 1;
+            }to{
+                transform: translateY(50%);
+                opacity: 0;
+            }
+        }
+        &>ul>li{
+            animation: removeAnimateListItem .3s forwards;
+        }
     }
 
     &>ul>li{
@@ -248,13 +359,43 @@ header
         background: white;
         position: relative;
         user-select: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         &.products
         {
             &>p{
                 font-weight: 800;
+            }
+
+            &::before
+            {
+                content: "";
+                position: absolute;
+                width: 95%;
+                height: 100%;
+                left: 50%;
+                transform: translateX(-50%);
                 border-bottom: 1px solid rgb(230, 230, 230);
             }
-            
+        }
+
+        .append-btn
+        {
+            width: 12px;
+            height: 12px;
+            position: relative;
+            cursor: pointer;
+            span{
+                display: block;
+                height: 2px;
+                width: 100%;
+                background: $border-color;
+            }
+            span:first-child{
+                position: absolute;
+                transform: rotate(90deg);
+            }
         }
 
         @for $i from 1 through 12 {

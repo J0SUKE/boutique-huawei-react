@@ -276,15 +276,6 @@ function SmartphoneSpecs() {
             </ul>
           </div>
           <div className="spec-category">
-            <h1>CARTE GRAPHIQUE</h1>
-            <ul>
-              <li>
-                <p>Puce graphique Intel® UHD</p>
-                <p>Puce graphique Intel® Iris® Xe</p>
-                </li>
-            </ul>
-          </div>
-          <div className="spec-category">
             <h1>Résistance aux éclaboussures, eau et poussière</h1>
             <ul>
               <li>
@@ -470,15 +461,6 @@ function TablettesSpecs() {
                 <h2>Rapport de contraste</h2>
                 <p>1 000 000 : 1 (type)</p>
               </li>
-            </ul>
-          </div>
-          <div className="spec-category">
-            <h1>CARTE GRAPHIQUE</h1>
-            <ul>
-              <li>
-                <p>Puce graphique Intel® UHD</p>
-                <p>Puce graphique Intel® Iris® Xe</p>
-                </li>
             </ul>
           </div>
           <div className="spec-category">

@@ -72,7 +72,34 @@ function ProductsGridContent({url,category}) {
       </div>
       <div className="products-grid" ref={productGrid}>
           <div className="products-grid__content">
-            <h1>{category}</h1>
+            <h1>{category} <span>({data.length})</span></h1>
+            <ul>
+              {
+                data?.slice(1).map(item=>{
+                  return(
+                    <li key={item.id}>
+                      <section>
+                        <Link to={`/${category}/${item.id}`}>
+                          <div><img src={`/images/products/${category}/${item.id}.png`} alt="" /></div>
+                        </Link>
+                        <h2><strong>HUAWEI</strong> {item.name}</h2>
+                        <Description desc={item.desc}/>
+                      </section>
+                      <section>
+                        <p className="price">
+                          <strong>à partir de {item.price} €</strong> Ou payer en 4 fois
+                        </p>
+                        <div className="btns">
+                          <button><Link to={`/${category}/${item.id}`}>En savoir plus</Link></button>
+                          <button><Link to={`/${category}/${item.id}/buy/`}>Acheter</Link></button>
+                        </div>
+                      </section>
+                    </li>
+                  )
+                  
+                })
+              }
+            </ul>
           </div>
           
       </div>

@@ -9,7 +9,7 @@ const Header = () => {
   
   const HeaderNode = useRef();
   const [menu,setMenu] = useState(null);
-  const location = useLocation();
+  const menuRef = useRef();
 
   let HeaderContextValue = {
     menu,
@@ -36,20 +36,26 @@ const Header = () => {
   let actualMenu = (()=>{
     switch (menu) {
       case "search":
-        return <SearchMenu/>
-        break;
+        return <SearchMenu menuRef={menuRef}/>
       case "category":
-        return <CategoryMenu/>
-        break;
+        return <CategoryMenu menuRef={menuRef}/>
       default:
         return null;
-        break;
     }
   })();
 
   function selectMenu(name) {
-    if (menu==name) setMenu(null);
-    else setMenu(name);
+    if (menu==name)
+    {
+      menuRef.current?.classList.add("inactive");
+      setTimeout(() => {
+        menuRef.current?.classList.remove("inactive");
+        setMenu(null);
+      }, 500);
+    } 
+    else{
+      setMenu(name);
+    };
   }
 
   return (
