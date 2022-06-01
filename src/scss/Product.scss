@@ -11,7 +11,6 @@
     border: none;
     outline: none;
     color: white;
-    padding: 9px 26px;
     border-radius: 30px;
     font-weight: 800;
     cursor: pointer;
@@ -21,6 +20,7 @@
     }
     a{
         display: flex;
+        padding: 9px 26px;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -31,7 +31,7 @@
 .topBanner
 {
     margin-top: 60px;
-    &__content
+    &__content 
     {
         width: 95%;
         height: 100%;

@@ -1,1 +1,100 @@
 @import "./globals.scss";
+
+.cart-header
+{
+    margin: 100px auto;
+    width: 85%;
+    max-width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progression-indicator
+{
+    width: 320px;
+    min-width: 320px;
+    max-width: 350px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    li{
+        height: 100%;
+        position: relative;
+        &:not(:last-of-type)
+        {
+            width: 150px;
+        }
+        &.active p{
+            opacity: 1;
+            font-weight: 500;
+        }
+        
+        display: flex;
+        align-items: center;
+        &.active .inside
+        {
+            background: black;
+        }
+    }
+    
+    .outside
+    {
+        height: 17px;
+        min-height: 17px;
+        width: 17px;
+        min-width: 17px;
+        background: rgb(228, 228, 228);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .inside{
+        height: 9px;
+        width: 9px;
+        border-radius: 50%;
+        background: darkgray;
+        position: absolute;
+        top: 10px;
+        left: 4px;
+        z-index: 2;
+    }
+    .line-outside
+    {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+        width: 150px;
+        height: 5px;
+        right: 10px;
+        background: rgb(228, 228, 228);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .line-inside
+    {   
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translateY(-50%) scaleX(25%);
+        transform-origin: left;
+        left: 8px;
+        right: 8px;
+        height: 1px;
+        background: black;
+        
+    }
+
+    p{
+        position: absolute;
+        top: 100%;
+        font-size: .8rem;
+        left: -25%;
+        opacity: .3;
+    }
+}

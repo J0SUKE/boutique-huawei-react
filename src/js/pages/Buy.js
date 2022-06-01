@@ -6,7 +6,7 @@ const buyContext = React.createContext();
 
 const Buy = () => {
     
-    const [data,setData] = useState([]);
+    const [data,setData] = useState();
     const [color,setColor] = useState("Noir");
     const [memory,setMemory] = useState(1); // 1 ou 2 ou 3 
     const [proc,setProc] = useState(1); // 1 ou 2
@@ -40,9 +40,13 @@ const Buy = () => {
                     setData(resp[i]);
                     setPrice(resp[i].price);
                     initialPrice.current=resp[i].price;
+                    break;
                 }    
+                if (i==resp.length-1 && resp[i].id != id) 
+                {
+                    window.location.href = "/indisponible/";
+                }
             }
-            
         })
     },[])
 
@@ -93,7 +97,10 @@ const Buy = () => {
                         category=="smartwatches" ?
                         <SmartWatches title={data?.name}/>
                         :
+                        category=="tablettes" ?
                         <SmartPhoneOptions title={data?.name}/>
+                        :
+                        null
                     }
                 </buyContext.Provider>
                 <div className="care">
