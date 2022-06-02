@@ -296,7 +296,6 @@
                     background: transparent;
                     border: none;
                     outline: none;
-                    max-width: 50px;
                     font-size: 1rem;
                     font-weight: 600;
                     cursor: pointer;
@@ -349,6 +348,10 @@
             position: static;
             top: unset;
             margin-top: 4rem;
+        }
+        .cart_products__main__right
+        {
+            margin-top: 2rem;
         }
     }
     @media screen and(max-width:480px)
