@@ -72,7 +72,22 @@ header
 
     }
 
-    
+    .cart{
+        position: relative;
+        span{
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            display: block;
+            background: #AD0824;
+            color: white;
+            border-radius: 50%;
+            width: 17px;
+            height: 17px;
+            font-weight: 700;
+            font-size: .7rem;
+        }
+    }    
 
     &.scroll
     {

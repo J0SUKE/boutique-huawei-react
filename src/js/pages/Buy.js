@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import {useLocation} from "react-router-dom"
 import { Link } from 'react-router-dom';
+import { AppContext } from '../AppContext';
 
 const buyContext = React.createContext();
 
 const Buy = () => {
     
+    const {cart,setCart} = useContext(AppContext);
     const [data,setData] = useState();
     const [color,setColor] = useState("Noir");
     const [memory,setMemory] = useState(1); // 1 ou 2 ou 3 
@@ -63,6 +65,45 @@ const Buy = () => {
             
     },[memory,proc])
 
+    function addTocart() {
+        
+        setCart(cart=>{
+            
+            let isAlreadyInCart = false;
+            for (let i = 0; i < cart.length; i++) {
+                let element = cart[i];
+                if (element.id == data.id && element.category == data.category) 
+                {
+                    isAlreadyInCart = true;
+                }
+            }
+
+            let recap;
+            if (category=="laptops") {
+                recap= `${data.name} Windows 10 Home / Intel® Core™ i${proc==1?"5":"7"}-1165G7 / 16 Go / ${memory==1 ? "512GO":"1TB"} / Écran FullView 3K / Tactile / Clavier AZERTY`    
+            }
+            else if(category=="smartphones" || category=="tablettes")
+            {   
+                recap=`HUAWEI ${data.name} ${color} /Dual SIM / 8 Go RAM / ${memory==1 ? 32 : memory==2 ? 64 : 128} Go Stockage / AppGallery`   
+            }
+            else
+            {
+                recap=`HUAWEI ${data.name} 42mm Classic ${color} / GPS / Bluetooth 5.1 / Microphone / Charge sans fil`
+            }
+
+            if (isAlreadyInCart) return cart;
+            else return [
+                            {
+                                recap:recap,
+                                total:price,
+                                qty:1,
+                                ...data
+                            }
+                        ,...cart
+                        ];
+        });
+    }
+
     return (
     <div className='buy-product'>
         <div className="buy-product-header">
@@ -77,7 +118,12 @@ const Buy = () => {
             </ul>
             <div>
                 <h2>{price?.toFixed(2)} € Ou 4 X {(price/4)?.toFixed(2)} €</h2>
-                <button className='addToCart-btn'>Ajouter au panier</button>
+                <button 
+                    className='addToCart-btn'
+                    onClick={addTocart}
+                >
+                    <Link to={'/shop/cart/'}>Ajouter au panier</Link>
+                </button>
             </div>
             
         </div>

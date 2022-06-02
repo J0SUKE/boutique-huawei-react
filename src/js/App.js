@@ -1,5 +1,5 @@
 import '../scss/App.scss';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -9,30 +9,14 @@ import Laptops from './pages/Products/Laptops';
 import ProductsGrid from './pages/Products/ProductsGrid';
 import Product from './pages/Product';
 import Buy from './pages/Buy';
-import { useLocation } from 'react-router-dom';
-
-
-function ScrollToTop()
-{
-	let location = useLocation();
-  useEffect(()=>{
-    window.scrollTo(0, 0);
-    if (location.pathname=="/laptops/") 
-    {
-      document.querySelector("html").style.scrollBehavior = "smooth";
-    }
-    else
-    {
-      document.querySelector("html").style.scrollBehavior = "auto";
-    }
-  },[location])
-
-  return <React.Fragment />;
-}
+import ScrollToTop from './Components/ScrollToTop'
+import GlobalContext from './AppContext';
 
 function App() {
+  
   return (
-    <BrowserRouter>
+    <GlobalContext>
+      <BrowserRouter>
         <ScrollToTop/>
         <Header/>
 
@@ -57,8 +41,9 @@ function App() {
 
         </Routes>
 
-        {/* <Footer/> */}
-    </BrowserRouter>
+        <Footer/>
+      </BrowserRouter>
+    </GlobalContext>
   );
 }
 

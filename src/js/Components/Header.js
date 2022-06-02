@@ -1,12 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import SearchMenu from './Header/SearchMenu'
 import CategoryMenu from './Header/CategoryMenu';
+import { AppContext } from '../AppContext';
 
 export const HeaderContext = React.createContext();
 
 const Header = () => {
   
+  const {cart} = useContext(AppContext);
   const HeaderNode = useRef();
   const [menu,setMenu] = useState(null);
   const menuRef = useRef();
@@ -31,7 +33,7 @@ const Header = () => {
     else{
       HeaderNode.current.classList.add("selected");
     }
-  })
+  },[menu])
 
   let actualMenu = (()=>{
     switch (menu) {
@@ -75,6 +77,7 @@ const Header = () => {
             <button className='cart'>
               <Link to={'/shop/cart'}>
                 <img src="/images/shopping-cart-alt.svg" alt="" />
+                {cart.length==0 ? null : <span>{cart.length}</span>}
               </Link>
             </button>
             <button className='hamburger' onClick={()=>{selectMenu("category")}}>
