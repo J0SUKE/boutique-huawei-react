@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-
+import Footer from '../../Components/Footer';
 
 function ProductsGrid()
 {
@@ -101,7 +101,7 @@ function ProductsGridContent({url,category}) {
               }
             </ul>
           </div>
-          
+          <Footer/>
       </div>
     </div>
   )
